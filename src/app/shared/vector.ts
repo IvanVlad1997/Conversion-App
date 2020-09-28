@@ -1,5 +1,6 @@
 export class Vector {
     setUnitati: string[];
+    // setUnitatiNume: string[];
     setValoriInUnitate: number[];    
     setValoriDinUnitate: number[];
     principal: string;
