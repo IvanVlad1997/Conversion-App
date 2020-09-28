@@ -26,9 +26,10 @@
             <option value="hm">Hectometri</option>
             <option value="km">Kilometri</option>
         </select> 
+        <button (click) ="saadaug(i) ">Adaugă</button>
+      <button (click) ="sasterg(i) ">Șterge</button>
     </div>
-    <button (click) ="saadaug() ">Adaugă</button>
-    <button (click) ="sasterg() ">Șterge</button>
+    
     </div>
    
     <div *ngIf="chose ==='TIMP'">
@@ -45,9 +46,10 @@
                 <option value="h">Ore</option>
         
             </select> 
+            <button (click) ="saadaug(i) ">Adaugă</button>
+            <button (click) ="sasterg(i) ">Șterge</button>
         </div>
-        <button (click) ="saadaug() ">Adaugă</button>
-        <button (click) ="sasterg() ">Șterge</button>
+      
         </div>
 
         <div *ngIf="chose ==='VOLUM'">
@@ -66,13 +68,14 @@
                     <option value="kl">Kilolitri</option>
             
                 </select> 
+                <button (click) ="saadaug(i) ">Adaugă</button>
+            <button (click) ="sasterg(i) ">Șterge</button>
             </div>
-            <button (click) ="saadaug() ">Adaugă</button>
-            <button (click) ="sasterg() ">Șterge</button>
+            
          </div>
 
          <div *ngIf="chose ==='MASA'">
-            <p>{{this.choseUnit.valoareInPlus}} kg</p>
+            <p>{{this.choseUnit.valoareInPlus}} g</p>
             <div *ngFor="let loop3 of counter(this.choseUnit.lungime) ;let i= index" >
                 <input  type="number" [(ngModel)]="this.choseUnit.numbers[i]"
                 (ngModelChange)="transform(i)">
@@ -88,7 +91,8 @@
                     <option value="tona">Tona</option>
             
                 </select> 
+                <button (click) ="saadaug(i) ">Adaugă</button>
+                <button (click) ="sasterg(i) ">Șterge</button>
             </div>
-            <button (click) ="saadaug() ">Adaugă</button>
-            <button (click) ="sasterg() ">Șterge</button>
+            
          </div>

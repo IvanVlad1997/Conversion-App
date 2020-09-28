@@ -112,12 +112,13 @@ changeSelect() {
     
   }
 
-   saadaug() {
+   saadaug(i) {
      
 
-    this.choseUnit.numbers.push(this.choseUnit.valoareInPlus)
-    this.choseUnit.units.push(this.choseUnit.principal)
- 
+    // this.choseUnit.numbers.push(this.choseUnit.valoareInPlus)
+    // this.choseUnit.units.push(this.choseUnit.principal)
+    this.choseUnit.numbers.splice(i, 0, this.choseUnit.valoareInPlus)
+    this.choseUnit.units.splice(i, 0, this.choseUnit.principal)
    
    this.choseUnit.lungime =  this.choseUnit.numbers.length;
    
@@ -128,10 +129,14 @@ changeSelect() {
   }
 
 
- sasterg() {
-  this.choseUnit.numbers.pop()
-  this.choseUnit.units.pop()
-
+ sasterg(i) {
+  // this.choseUnit.numbers.pop()
+  //  this.choseUnit.units.pop()
+  this.choseUnit.units.splice(i,1)
+  this.choseUnit.numbers.splice(i,1)
+  console.log(i)
+ 
+  
  
  this.choseUnit.lungime =  this.choseUnit.numbers.length;
  localStorage.setItem(`${this.choseUnit.principal}`, JSON.stringify(this.choseUnit));
