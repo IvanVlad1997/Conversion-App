@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {  Component, OnInit } from '@angular/core';
 import { LUNGIME } from '../shared/vectors'
 
 
@@ -10,7 +10,7 @@ import { LUNGIME } from '../shared/vectors'
 })
 export class ConvComponent implements OnInit {
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {  }
+  constructor() {  }
   
  
   units: string[] = ['m','m']
@@ -63,9 +63,11 @@ export class ConvComponent implements OnInit {
     
   }
 
-  public saadaug() {
-    this.numbers.push(2)
-   this.changeDetectorRef.detectChanges()
+   saadaug() {
+
+    this.numbers.push(this.valoareaInPlus)
+    this.units.push('m')
+ 
    
    this.lungime =  this.numbers.length;
    
@@ -76,7 +78,15 @@ export class ConvComponent implements OnInit {
     // this.numbers.push(23)
     // setTimeout(() => {return this.numbers });
   }
+
+
+ sasterg() {
+  this.numbers.pop()
+  this.units.pop()
+
  
+ this.lungime =  this.numbers.length;
+ }
 
 
 
