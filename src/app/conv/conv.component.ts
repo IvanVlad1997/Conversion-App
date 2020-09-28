@@ -30,32 +30,31 @@ export class ConvComponent implements OnInit {
     console.log(LUNGIME.setValoriDinUnitate)
     console.log(LUNGIME.setValoriInUnitate)
     console.log(this.numbers.length)
-    if (s === 0 ) for(let i of LUNGIME.setUnitati) 
+    for(let i of LUNGIME.setUnitati) 
           if (i===this.units[s])
           
        
          {
          //TRANSFORMARE IN METRI  
-          console.log(LUNGIME.setUnitati.indexOf(i))
-          console.log(this.units[s]);
+        
           let index = LUNGIME.setUnitati.indexOf(i);
           let ValueDin = LUNGIME.setValoriDinUnitate[index]
-          console.log(ValueDin)
           this.valoareaInPlus = this.numbers[s] * ValueDin
-          console.log('Valoarea in metri este ' +  this.valoareaInPlus)
+         
         
           
           //TRANSFORMARE DIN METRI
-          for (let j of LUNGIME.setUnitati)
-            if(j==this.units[1])
-              {console.log(LUNGIME.setUnitati.indexOf(j))
-              console.log(this.units[1]);
-              let index1 = LUNGIME.setUnitati.indexOf(j)
-              let ValueIn = LUNGIME.setValoriInUnitate[index1]
-              console.log(ValueIn)
-              this.numbers[1] = ValueIn * this.valoareaInPlus}
-              
-        }
+         
+          for (let k in this.units) 
+            if (s !== k)
+               for (let j of LUNGIME.setUnitati)
+                 if(j===this.units[k])
+                  {
+                  let index1 = LUNGIME.setUnitati.indexOf(j)
+                  let ValueIn = LUNGIME.setValoriInUnitate[index1]
+                  this.numbers[k] = ValueIn * this.valoareaInPlus}
+                    
+                  }
 
       
 
