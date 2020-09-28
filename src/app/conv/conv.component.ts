@@ -1,5 +1,5 @@
 import {  Component, OnInit } from '@angular/core';
-import { LUNGIME , TIMP} from '../shared/vectors'
+import { LUNGIME , TIMP, VOLUM, MASA} from '../shared/vectors'
 import {Vector} from '../shared/vector'
 
 
@@ -49,6 +49,23 @@ changeSelect() {
       console.log('retrievedObject: ', JSON.parse(retrievedObject));
       this.choseUnit = JSON.parse(retrievedObject); }
         break;
+    }
+    case 'VOLUM' : {
+      this.choseUnit = VOLUM;
+      const retrievedObject = localStorage.getItem(`${this.choseUnit.principal}`);
+      if (retrievedObject) {
+      console.log('retrievedObject: ', JSON.parse(retrievedObject));
+      this.choseUnit = JSON.parse(retrievedObject); }
+        break;
+    }
+
+    case 'MASA' :{
+      this.choseUnit  =MASA;
+      const retrievedObject = localStorage.getItem(`${this.choseUnit.principal}`);
+      if (retrievedObject) {
+      console.log('retrievedObject: ', JSON.parse(retrievedObject));
+      this.choseUnit = JSON.parse(retrievedObject); }
+      break;
     }
     default: {
       this.choseUnit = LUNGIME;
@@ -104,7 +121,7 @@ changeSelect() {
    
    this.choseUnit.lungime =  this.choseUnit.numbers.length;
    
-  
+   localStorage.setItem(`${this.choseUnit.principal}`, JSON.stringify(this.choseUnit));
  
    
 
@@ -117,6 +134,7 @@ changeSelect() {
 
  
  this.choseUnit.lungime =  this.choseUnit.numbers.length;
+ localStorage.setItem(`${this.choseUnit.principal}`, JSON.stringify(this.choseUnit));
  }
 
 
