@@ -1,6 +1,6 @@
 import {  Component, OnInit } from '@angular/core';
-import { LUNGIME } from '../shared/vectors'
-
+import { LUNGIME , TIMP} from '../shared/vectors'
+import {Vector} from '../shared/vector'
 
 
 @Component({
@@ -11,52 +11,68 @@ import { LUNGIME } from '../shared/vectors'
 export class ConvComponent implements OnInit {
 
   constructor() {  }
-  
+  chose: string ="LUNGIME";
  
-  units: string[] = ['m','m']
-  numbers: number[]=[0,0];
-  counter = Array;
-  lungime =  this.numbers.length;
-
-
-  valoareaInPlus: number;
+  choseUnit : Vector =LUNGIME;
   
+  counter = Array;
+  
+
+
+
+
 
   ngOnInit(): void {
     
 }
 
+changeSelect() {
+  switch (this.chose) {
+    case 'LUNGIME' :{
+      this.choseUnit  =LUNGIME;
+      break;
+    }
+    case 'TIMP' : {
+      this.choseUnit = TIMP;
+      break;
+    }
+    default: {
+      this.choseUnit = LUNGIME;
+    }
+      
+  }
+}
 
   transform(s) {
-   
-    for(let i of LUNGIME.setUnitati) 
-          if (i===this.units[s])
+   console.log(this.choseUnit)
+    for(let i of this.choseUnit.setUnitati) 
+          if (i===this.choseUnit.units[s])
           
        
          {
          //TRANSFORMARE IN METRI  
         
-          let index = LUNGIME.setUnitati.indexOf(i);
-          let ValueDin = LUNGIME.setValoriDinUnitate[index]
-          this.valoareaInPlus = this.numbers[s] * ValueDin
+          let index = this.choseUnit.setUnitati.indexOf(i);
+          let ValueDin = this.choseUnit.setValoriDinUnitate[index]
+          this.choseUnit.valoareInPlus = this.choseUnit.numbers[s] * ValueDin
          
         
           
           //TRANSFORMARE DIN METRI
          
-          for (let k in this.units) 
+          for (let k in this.choseUnit.units) 
             if (s !== k)
-               for (let j of LUNGIME.setUnitati)
-                 if(j===this.units[k])
+               for (let j of this.choseUnit.setUnitati)
+                 if(j===this.choseUnit.units[k])
                   {
-                  let index1 = LUNGIME.setUnitati.indexOf(j)
-                  let ValueIn = LUNGIME.setValoriInUnitate[index1]
-                  this.numbers[k] = ValueIn * this.valoareaInPlus}
+                  let index1 = this.choseUnit.setUnitati.indexOf(j)
+                  let ValueIn = this.choseUnit.setValoriInUnitate[index1]
+                  this.choseUnit.numbers[k] = ValueIn * this.choseUnit.valoareInPlus}
                     
                   }
-                  console.log(LUNGIME)
-                  console.log(this.units)
-                  console.log(this.numbers)
+                  console.log(this.choseUnit)
+                  console.log(this.choseUnit.units)
+                  console.log(this.choseUnit.numbers)
 
 
 
@@ -64,28 +80,29 @@ export class ConvComponent implements OnInit {
   }
 
    saadaug() {
+     
 
-    this.numbers.push(this.valoareaInPlus)
-    this.units.push('m')
+    this.choseUnit.numbers.push(this.choseUnit.valoareInPlus)
+    this.choseUnit.units.push(this.choseUnit.principal)
  
    
-   this.lungime =  this.numbers.length;
+   this.choseUnit.lungime =  this.choseUnit.numbers.length;
    
-  //  localStorage.setItem(`this.numbers`, JSON.stringify(this.numbers));
-  //  localStorage.setItem(`this.units`, JSON.stringify(this.units));
+  //  localStorage.setItem(`this.choseUnit.numbers`, JSON.stringify(this.choseUnit.numbers));
+  //  localStorage.setItem(`this.choseUnit.units`, JSON.stringify(this.choseUnit.units));
  
    
-    // this.numbers.push(23)
-    // setTimeout(() => {return this.numbers });
+    // this.choseUnit.numbers.push(23)
+    // setTimeout(() => {return this.choseUnit.numbers });
   }
 
 
  sasterg() {
-  this.numbers.pop()
-  this.units.pop()
+  this.choseUnit.numbers.pop()
+  this.choseUnit.units.pop()
 
  
- this.lungime =  this.numbers.length;
+ this.choseUnit.lungime =  this.choseUnit.numbers.length;
  }
 
 

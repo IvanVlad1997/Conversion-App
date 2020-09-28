@@ -1,12 +1,20 @@
 
+<select [(ngModel)]= "chose"
+    (change)="changeSelect()">
+    <option disabled>Alege</option>
+    <option value="LUNGIME">Lungime</option>
+    <option value="TIMP">Timp</option>
+</select>
 
-<p>{{valoareaInPlus}} metri</p>
 
-   
-    <div  *ngFor="let loop3 of counter(lungime) ;let i= index" >
-        <input  type="number" [(ngModel)]="numbers[i]"
+
+
+   <div *ngIf="chose ==='LUNGIME'">
+    <p>{{this.choseUnit.valoareInPlus}} metri</p>
+    <div *ngFor="let loop3 of counter(this.choseUnit.lungime) ;let i= index" >
+        <input  type="number" [(ngModel)]="this.choseUnit.numbers[i]"
         (ngModelChange)="transform(i)">
-        <select [(ngModel)] ="units[i]"
+        <select [(ngModel)] ="this.choseUnit.units[i]"
         (ngModelChange)="transform(i)">
             <option value="mm">Milimetri</option>
             <option value="cm">Centimetri</option>
@@ -15,10 +23,27 @@
             <option value="dec">Decametri</option>
             <option value="hm">Hectometri</option>
             <option value="km">Kilometri</option>
-        </select>
-        
+        </select> 
     </div>
-
-
     <button (click) ="saadaug() ">Adaugă</button>
     <button (click) ="sasterg() ">Șterge</button>
+    </div>
+   
+    <div *ngIf="chose ==='TIMP'">
+        <p>{{this.choseUnit.valoareInPlus}} sec</p>
+        <div *ngFor="let loop3 of counter(this.choseUnit.lungime) ;let i= index" >
+            <input  type="number" [(ngModel)]="this.choseUnit.numbers[i]"
+            (ngModelChange)="transform(i)">
+            <select [(ngModel)] ="this.choseUnit.units[i]"
+            (ngModelChange)="transform(i)">
+                <option value="us">Microsecunde</option>
+                <option value="ms">Milisecunde</option>
+                <option value="s">Secunde</option>
+                <option value="m">Minute</option>
+                <option value="h">Ore</option>
+        
+            </select> 
+        </div>
+        <button (click) ="saadaug() ">Adaugă</button>
+        <button (click) ="sasterg() ">Șterge</button>
+        </div>
