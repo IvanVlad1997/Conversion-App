@@ -2,10 +2,16 @@
 (ngModelChange)="transform(0)">
 <select [(ngModel)] ="units[0]"
 (ngModelChange)="transform(0)">
-
+    <option value="mm">Milimetri</option>
     <option value="cm">Centimetri</option>
+    <option value="dm">Decimetri</option>
     <option value="m">Metri</option>
+    <option value="dec">Decametri</option>
+    <option value="hm">Hectometri</option>
+    <option value="km">Kilometri</option>
 </select>
+
+<p>{{valoareaInPlus}} metri</p>
 
 <input type="number" [(ngModel)]="numbers[1]"
 (ngModelChange)="transform(1)">
