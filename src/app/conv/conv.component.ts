@@ -23,18 +23,32 @@ export class ConvComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+    const retrievedObject = localStorage.getItem(`${this.choseUnit.principal}`);
+    if (retrievedObject) {
+    console.log('retrievedObject: ', JSON.parse(retrievedObject));
+    this.choseUnit = JSON.parse(retrievedObject); 
+   
+
+  }
 }
 
 changeSelect() {
   switch (this.chose) {
     case 'LUNGIME' :{
       this.choseUnit  =LUNGIME;
+      const retrievedObject = localStorage.getItem(`${this.choseUnit.principal}`);
+      if (retrievedObject) {
+      console.log('retrievedObject: ', JSON.parse(retrievedObject));
+      this.choseUnit = JSON.parse(retrievedObject); }
       break;
     }
     case 'TIMP' : {
       this.choseUnit = TIMP;
-      break;
+      const retrievedObject = localStorage.getItem(`${this.choseUnit.principal}`);
+      if (retrievedObject) {
+      console.log('retrievedObject: ', JSON.parse(retrievedObject));
+      this.choseUnit = JSON.parse(retrievedObject); }
+        break;
     }
     default: {
       this.choseUnit = LUNGIME;
@@ -73,7 +87,9 @@ changeSelect() {
                   console.log(this.choseUnit)
                   console.log(this.choseUnit.units)
                   console.log(this.choseUnit.numbers)
-
+            
+             localStorage.setItem(`${this.choseUnit.principal}`, JSON.stringify(this.choseUnit));
+             
 
 
     
@@ -88,12 +104,10 @@ changeSelect() {
    
    this.choseUnit.lungime =  this.choseUnit.numbers.length;
    
-  //  localStorage.setItem(`this.choseUnit.numbers`, JSON.stringify(this.choseUnit.numbers));
-  //  localStorage.setItem(`this.choseUnit.units`, JSON.stringify(this.choseUnit.units));
+  
  
    
-    // this.choseUnit.numbers.push(23)
-    // setTimeout(() => {return this.choseUnit.numbers });
+
   }
 
 
