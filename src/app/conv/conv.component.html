@@ -1,0 +1,34 @@
+<input type="number" [(ngModel)]="numbers[0]"
+(ngModelChange)="transform(0)">
+<select [(ngModel)] ="units[0]"
+(ngModelChange)="transform(0)">
+
+    <option value="cm">Centimetri</option>
+    <option value="m">Metri</option>
+</select>
+
+<input type="number" [(ngModel)]="numbers[1]"
+(ngModelChange)="transform(1)">
+<select [(ngModel)] ="units[1]"
+(ngModelChange)="transform(1)">
+
+    <option value="cm">Centimetri</option>
+    <option value="m">Metri</option>
+</select>
+
+
+<ul>
+   
+    <div *ngFor="let loop3 of counter(lungime) ;let i= index">
+        <input type="number" [(ngModel)]="numbers[i]"
+        (ngModelChange)="transform(i)">
+        <select [(ngModel)] ="units[i]"
+        (ngModelChange)="transform(i)">
+        
+            <option value="cm">Centimetri</option>
+            <option value="m">Metri</option>
+        </select>
+    </div>
+</ul>
+
+<button (click) ="saadaug()">Adaug</button>
