@@ -58,7 +58,6 @@ export class ConvComponent implements OnInit {
                   console.log(this.units)
                   console.log(this.numbers)
 
-      
 
 
     
@@ -68,6 +67,8 @@ export class ConvComponent implements OnInit {
     this.numbers.push(2)
    this.changeDetectorRef.detectChanges()
    
+   this.lungime =  this.numbers.length;
+   
   //  localStorage.setItem(`this.numbers`, JSON.stringify(this.numbers));
   //  localStorage.setItem(`this.units`, JSON.stringify(this.units));
  
@@ -76,6 +77,7 @@ export class ConvComponent implements OnInit {
     // setTimeout(() => {return this.numbers });
   }
  
+
 
 
 

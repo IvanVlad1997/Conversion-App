@@ -24,7 +24,7 @@
 
 
    
-    <div  *ngFor="let loop3 of counter(lungime) ;let i= index">
+    <div  *ngFor="let loop3 of counter(lungime) ;let i= index" >
         <input  type="number" [(ngModel)]="numbers[i]"
         (ngModelChange)="transform(i)">
         <select [(ngModel)] ="units[i]"
