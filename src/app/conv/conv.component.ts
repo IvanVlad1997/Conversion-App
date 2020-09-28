@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { LUNGIME } from '../shared/vectors'
+
+
 
 @Component({
   selector: 'app-conv',
@@ -8,7 +10,7 @@ import { LUNGIME } from '../shared/vectors'
 })
 export class ConvComponent implements OnInit {
 
-  constructor() { }
+  constructor(private changeDetectorRef: ChangeDetectorRef) {  }
   
  
   units: string[] = ['m','m']
@@ -18,18 +20,15 @@ export class ConvComponent implements OnInit {
 
 
   valoareaInPlus: number;
+  
 
   ngOnInit(): void {
-   
-  }
+    
+}
+
 
   transform(s) {
-    console.log(this.units)
-    console.log(this.numbers)
-    console.log(LUNGIME.setUnitati)
-    console.log(LUNGIME.setValoriDinUnitate)
-    console.log(LUNGIME.setValoriInUnitate)
-    console.log(this.numbers.length)
+   
     for(let i of LUNGIME.setUnitati) 
           if (i===this.units[s])
           
@@ -55,6 +54,9 @@ export class ConvComponent implements OnInit {
                   this.numbers[k] = ValueIn * this.valoareaInPlus}
                     
                   }
+                  console.log(LUNGIME)
+                  console.log(this.units)
+                  console.log(this.numbers)
 
       
 
@@ -62,11 +64,16 @@ export class ConvComponent implements OnInit {
     
   }
 
-  saadaug() {
-    let index = LUNGIME.setUnitati.indexOf('cm')
-    console.log(LUNGIME)
-    console.log(index)
+  public saadaug() {
+    this.numbers.push(2)
+   this.changeDetectorRef.detectChanges()
+   
+  //  localStorage.setItem(`this.numbers`, JSON.stringify(this.numbers));
+  //  localStorage.setItem(`this.units`, JSON.stringify(this.units));
+ 
+   
     // this.numbers.push(23)
+    // setTimeout(() => {return this.numbers });
   }
  
 

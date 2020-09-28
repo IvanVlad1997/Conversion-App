@@ -1,4 +1,4 @@
-<input type="number" [(ngModel)]="numbers[0]"
+<!-- <input type="number" [(ngModel)]="numbers[0]"
 (ngModelChange)="transform(0)">
 <select [(ngModel)] ="units[0]"
 (ngModelChange)="transform(0)">
@@ -8,33 +8,37 @@
     <option value="m">Metri</option>
     <option value="dec">Decametri</option>
     <option value="hm">Hectometri</option>
-    <option value="km">Kilometri</option>
-</select>
+    <option value="km">Centimetri</option>
+</select> -->
 
 <p>{{valoareaInPlus}} metri</p>
 
-<input type="number" [(ngModel)]="numbers[1]"
+<!-- <input type="number" [(ngModel)]="numbers[1]"
 (ngModelChange)="transform(1)">
 <select [(ngModel)] ="units[1]"
 (ngModelChange)="transform(1)">
 
     <option value="cm">Centimetri</option>
     <option value="m">Metri</option>
-</select>
+</select> -->
 
 
-<ul>
    
-    <div *ngFor="let loop3 of counter(lungime) ;let i= index">
-        <input type="number" [(ngModel)]="numbers[i]"
+    <div  *ngFor="let loop3 of counter(lungime) ;let i= index">
+        <input  type="number" [(ngModel)]="numbers[i]"
         (ngModelChange)="transform(i)">
         <select [(ngModel)] ="units[i]"
         (ngModelChange)="transform(i)">
-        
+            <option value="mm">Milimetri</option>
             <option value="cm">Centimetri</option>
+            <option value="dm">Decimetri</option>
             <option value="m">Metri</option>
+            <option value="dec">Decametri</option>
+            <option value="hm">Hectometri</option>
+            <option value="km">Kilometri</option>
         </select>
+        
     </div>
-</ul>
 
-<button (click) ="saadaug()">Adaug</button>
+
+<button (click) ="saadaug() ">Adaug</button>
