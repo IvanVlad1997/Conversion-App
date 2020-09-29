@@ -3,6 +3,7 @@ import { LUNGIME , TIMP, VOLUM, MASA} from '../shared/vectors'
 import {Vector} from '../shared/vector'
 
 
+
 @Component({
   selector: 'app-conv',
   templateUrl: './conv.component.html',
@@ -11,7 +12,7 @@ import {Vector} from '../shared/vector'
 export class ConvComponent implements OnInit {
 
   constructor() {  }
-  chose: string ="LUNGIME";
+  chose: any ="LUNGIME";
  
   choseUnit : Vector =LUNGIME;
   
@@ -32,43 +33,40 @@ export class ConvComponent implements OnInit {
   }
 }
 
+helperFunctionForChangeSelect() {
+  const retrievedObject = localStorage.getItem(`${this.choseUnit.principal}`);
+  if (retrievedObject) {
+  console.log('retrievedObject: ', JSON.parse(retrievedObject));
+  this.choseUnit = JSON.parse(retrievedObject); }
+}
+
 changeSelect() {
+ 
   switch (this.chose) {
     case 'LUNGIME' :{
       this.choseUnit  =LUNGIME;
-      const retrievedObject = localStorage.getItem(`${this.choseUnit.principal}`);
-      if (retrievedObject) {
-      console.log('retrievedObject: ', JSON.parse(retrievedObject));
-      this.choseUnit = JSON.parse(retrievedObject); }
+      this.helperFunctionForChangeSelect()
       break;
     }
     case 'TIMP' : {
       this.choseUnit = TIMP;
-      const retrievedObject = localStorage.getItem(`${this.choseUnit.principal}`);
-      if (retrievedObject) {
-      console.log('retrievedObject: ', JSON.parse(retrievedObject));
-      this.choseUnit = JSON.parse(retrievedObject); }
+      this.helperFunctionForChangeSelect()
         break;
     }
     case 'VOLUM' : {
       this.choseUnit = VOLUM;
-      const retrievedObject = localStorage.getItem(`${this.choseUnit.principal}`);
-      if (retrievedObject) {
-      console.log('retrievedObject: ', JSON.parse(retrievedObject));
-      this.choseUnit = JSON.parse(retrievedObject); }
+      this.helperFunctionForChangeSelect()
         break;
     }
 
     case 'MASA' :{
       this.choseUnit  =MASA;
-      const retrievedObject = localStorage.getItem(`${this.choseUnit.principal}`);
-      if (retrievedObject) {
-      console.log('retrievedObject: ', JSON.parse(retrievedObject));
-      this.choseUnit = JSON.parse(retrievedObject); }
+      this.helperFunctionForChangeSelect()
       break;
     }
     default: {
       this.choseUnit = LUNGIME;
+      this.helperFunctionForChangeSelect()
     }
       
   }

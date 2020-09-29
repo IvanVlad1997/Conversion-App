@@ -1,4 +1,4 @@
-
+<div class="container mt-5">
 <select [(ngModel)]= "chose"
     (change)="changeSelect()">
     
@@ -11,88 +11,21 @@
 
 
 
-   <div *ngIf="chose ==='LUNGIME'">
-    <p>{{this.choseUnit.valoareInPlus}} metri</p>
+  
+    <!-- <p>{{this.choseUnit.valoareInPlus}} metri</p> -->
     <div *ngFor="let loop3 of counter(this.choseUnit.lungime) ;let i= index" >
         <input  type="number" [(ngModel)]="this.choseUnit.numbers[i]"
         (ngModelChange)="transform(i)">
         <select [(ngModel)] ="this.choseUnit.units[i]"
         (ngModelChange)="transform(i)">
-            <option value="mm">Milimetri</option>
-            <option value="cm">Centimetri</option>
-            <option value="dm">Decimetri</option>
-            <option value="m">Metri</option>
-            <option value="dec">Decametri</option>
-            <option value="hm">Hectometri</option>
-            <option value="km">Kilometri</option>
+            <option *ngFor="let op of this.choseUnit.setUnitati" [value]="op">
+                {{op}}
+            </option>
         </select> 
         <button (click) ="saadaug(i) ">Adaugă</button>
       <button (click) ="sasterg(i) ">Șterge</button>
-    </div>
     
-    </div>
+    
    
-    <div *ngIf="chose ==='TIMP'">
-        <p>{{this.choseUnit.valoareInPlus}} sec</p>
-        <div *ngFor="let loop3 of counter(this.choseUnit.lungime) ;let i= index" >
-            <input  type="number" [(ngModel)]="this.choseUnit.numbers[i]"
-            (ngModelChange)="transform(i)">
-            <select [(ngModel)] ="this.choseUnit.units[i]"
-            (ngModelChange)="transform(i)">
-                <option value="us">Microsecunde</option>
-                <option value="ms">Milisecunde</option>
-                <option value="s">Secunde</option>
-                <option value="m">Minute</option>
-                <option value="h">Ore</option>
-        
-            </select> 
-            <button (click) ="saadaug(i) ">Adaugă</button>
-            <button (click) ="sasterg(i) ">Șterge</button>
-        </div>
-      
-        </div>
 
-        <div *ngIf="chose ==='VOLUM'">
-            <p>{{this.choseUnit.valoareInPlus}} litri</p>
-            <div *ngFor="let loop3 of counter(this.choseUnit.lungime) ;let i= index" >
-                <input  type="number" [(ngModel)]="this.choseUnit.numbers[i]"
-                (ngModelChange)="transform(i)">
-                <select [(ngModel)] ="this.choseUnit.units[i]"
-                (ngModelChange)="transform(i)">
-                    <option value="ml">Mililitri</option>
-                    <option value="cl">Centilitri</option>
-                    <option value="dl">Decilitri</option>
-                    <option value="l">Litri</option>
-                    <option value="dal">Decalitri</option>
-                    <option value="hl">Hectolitri</option>
-                    <option value="kl">Kilolitri</option>
-            
-                </select> 
-                <button (click) ="saadaug(i) ">Adaugă</button>
-            <button (click) ="sasterg(i) ">Șterge</button>
-            </div>
-            
-         </div>
-
-         <div *ngIf="chose ==='MASA'">
-            <p>{{this.choseUnit.valoareInPlus}} g</p>
-            <div *ngFor="let loop3 of counter(this.choseUnit.lungime) ;let i= index" >
-                <input  type="number" [(ngModel)]="this.choseUnit.numbers[i]"
-                (ngModelChange)="transform(i)">
-                <select [(ngModel)] ="this.choseUnit.units[i]"
-                (ngModelChange)="transform(i)">
-                    <option value="mg">Miligram</option>
-                    <option value="cg">Centigram</option>
-                    <option value="dg">Decigram</option>
-                    <option value="g">Gram</option>
-                    <option value="dag">Decagram</option>
-                    <option value="hg">Hectogram</option>
-                    <option value="kg">Kilogram</option>
-                    <option value="tona">Tona</option>
-            
-                </select> 
-                <button (click) ="saadaug(i) ">Adaugă</button>
-                <button (click) ="sasterg(i) ">Șterge</button>
-            </div>
-            
-         </div>
+ </div>

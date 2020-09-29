@@ -1,49 +1,49 @@
 import {Vector} from './vector'
 
 export const LUNGIME: Vector = {
-    setUnitati: ['mm', 'cm','dm', 'm','dec','hm','km'],
+    setUnitati: ['Milimetri','Centimetri', 'Decimetri','Metri','Decametri','Hectometri','Kilometri'],
     // setUnitatiNume: ['Milimetri','Centimetri', 'Decimetri','Metri','Decametri','Hectometri','Kilometri'],
     setValoriDinUnitate: [0.001, 0.01, 0.1, 1, 10, 100, 1000],
     setValoriInUnitate: [1000, 100, 10, 1, 0.1, 0.01, 0.001],
-    principal: 'm',
+    principal: 'Metri',
     valoareInPlus: 0,
-    units: ['m', 'm'],
+    units: ['Metri', 'Metri'],
     numbers: [0, 0],
     lungime: 2
 }
 
 export const TIMP: Vector = {
-    setUnitati: ['us', 'ms','s', 'm','h'],
+    setUnitati: ['Microsecunde','Milisecunde', 'Secunde','Minute','Ore'],
     // setUnitatiNume: ['Microsecunde','Milisecunde', 'Secunde','Minute','Ore'],
     setValoriDinUnitate: [0.00001, 0.001, 1, 60, 3600],
     setValoriInUnitate: [100000, 1000, 1, 0.016666666666667, 0.00027777777777778],
-    principal: 's',
+    principal: 'Secunde',
     valoareInPlus: 0,
-    units: ['s', 's'],
+    units: ['Secunde', 'Secunde'],
     numbers: [0, 0],
     lungime: 2
 }
 
 export const VOLUM: Vector = {
-    setUnitati: ['ml', 'cl','dl', 'l','dal','hl','kl'],
+    setUnitati: ['Mililitri','Centilitri', 'Decilitri','Litri','Decalitri','Hectolitri','Kilolitri'],
     // setUnitatiNume: ['Mililitri','Centilitri', 'Decilitri','Litri','Decalitri','Hectolitri','Kilolitri'],
     setValoriDinUnitate: [0.001, 0.01, 0.1, 1, 10, 100, 1000],
     setValoriInUnitate: [1000, 100, 10, 1, 0.1, 0.01, 0.001],
-    principal: 'l',
+    principal: 'Litri',
     valoareInPlus: 0,
-    units: ['l', 'l'],
+    units: ['Litri', 'Litri'],
     numbers: [0, 0],
     lungime: 2
 }
 
 export const MASA: Vector = {
-    setUnitati: ['mg', 'cg','dg', 'g','dag','hg','kg','tona'],
+    setUnitati: ['Miligrame','Centigrame', 'Decigrame','Grame','Decagrame','Hectograme','Kilograme','Tone'],
     // setUnitatiNume: ['Miligrame','Centigrame', 'Decigrame','Grame','Decagrame','Hectograme','Kilograme','Tone'],
     setValoriDinUnitate: [0.001, 0.01, 0.1, 1, 10, 100, 1000, 1000000],
     setValoriInUnitate: [1000, 100, 10, 1, 0.1, 0.01, 0.001, 0.000001],
-    principal: 'g',
+    principal: 'Grame',
     valoareInPlus: 0,
-    units: ['g', 'g'],
+    units: ['Grame', 'Grame'],
     numbers: [0, 0],
     lungime: 2
 }
