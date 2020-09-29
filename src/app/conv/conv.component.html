@@ -1,29 +1,45 @@
+<!-- Extra - navbar -->
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="https://github.com/IvanVlad1997/Conversion-App" target="_blank">
+      <img src="https://i.imgur.com/RFsznez.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+       Conversii - Ivan Vlad
+    </a>
+</nav>
+
+
+
 <div class="container mt-5">
-<select [(ngModel)]= "chose"
-    (change)="changeSelect()">
-    
-    <option value="LUNGIME">Lungime</option>
-    <option value="TIMP">Timp</option>
-    <option value="VOLUM">Volum</option>
-    <option value="MASA">Masa</option>
-</select>
+
+    <p class="text-center textHeader">Alege-ți sistemul de unități favorit</p>
+
+   <!-- Select -->
+
+    <select class="custom-select mb-5" [(ngModel)]= "chose"
+        (change)="changeSelect()">  
+        <option value="LUNGIME">Lungime</option>
+        <option value="TIMP">Timp</option>
+        <option value="VOLUM">Volum</option>
+        <option value="MASA">Masa</option>
+    </select>
+
 
 
 
 
   
     <!-- <p>{{this.choseUnit.valoareInPlus}} metri</p> -->
-    <div *ngFor="let loop3 of counter(this.choseUnit.lungime) ;let i= index" >
-        <input  type="number" [(ngModel)]="this.choseUnit.numbers[i]"
+    <div class="d-flex bd-highlight mb-5 flex-wrap" *ngFor="let loop3 of counter(this.choseUnit.lungime) ;let i= index" >
+        <input class=" p-2 bd-highlight"   type="number" [(ngModel)]="this.choseUnit.numbers[i]"
         (ngModelChange)="transform(i)">
-        <select [(ngModel)] ="this.choseUnit.units[i]"
+        <select class="mr-auto p-2 bd-highlight"  [(ngModel)] ="this.choseUnit.units[i]"
         (ngModelChange)="transform(i)">
             <option *ngFor="let op of this.choseUnit.setUnitati" [value]="op">
                 {{op}}
             </option>
         </select> 
-        <button (click) ="saadaug(i) ">Adaugă</button>
-      <button (click) ="sasterg(i) ">Șterge</button>
+        <button class=" btn btn-success p-2 bd-highlight" (click) ="saadaug(i) ">Adaugă</button>
+      <button class="btn btn-danger p-2 bd-highlight" [hidden] = "i === 0" (click) ="sasterg(i) ">Șterge</button>
     
     
    
